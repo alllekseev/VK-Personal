@@ -14,11 +14,3 @@ protocol BaseViewProtocol {
     func configureAppearance()
 }
 
-extension BaseViewProtocol {
-    func configureView() {
-        addSubviews()
-        setupLayout()
-        configureAppearance()
-    }
-}
-

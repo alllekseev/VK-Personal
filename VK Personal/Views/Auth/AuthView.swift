@@ -9,7 +9,7 @@ import UIKit
 
 final class AuthView: VKBaseView {
     private let loginTextField = AuthTextField(placeholder: "Логин")
-    private let passwordTextField = AuthTextField(placeholder: "Пароль")
+    private let passwordTextField = PasswordTextField(placeholder: "Пароль")
     private let logoImageView = LogoImageView(image: Icons.logo!)
     private let titleLabel = TitleLabel(text: "Авторизация")
     private let loginButton = BigButton(title: "Войти", height: 64)

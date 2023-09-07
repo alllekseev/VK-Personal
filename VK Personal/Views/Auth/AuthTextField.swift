@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class AuthTextField: UITextField {
+class AuthTextField: UITextField {
     // MARK: - Private Properties
-    private let padding = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 14)
+    private let padding = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 16)
 
     // MARK: - Initializers
     init(placeholder: String) {
@@ -36,7 +36,7 @@ final class AuthTextField: UITextField {
     }
 
     // MARK: - Private Methods
-    private func setupTextField(placeholder: String) {
+    func setupTextField(placeholder: String) {
         textColor = .black
         layer.cornerRadius = 16
         backgroundColor = Colors.white

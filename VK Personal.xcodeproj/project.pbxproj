@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A2D9F742AA9DF8D002FBDC3 /* PasswordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D9F732AA9DF8D002FBDC3 /* PasswordButton.swift */; };
+		2A2D9F762AA9F1AE002FBDC3 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D9F752AA9F1AE002FBDC3 /* PasswordTextField.swift */; };
 		2A93EE3C2AA2169500243273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93EE3B2AA2169500243273 /* AppDelegate.swift */; };
 		2A93EE3E2AA2169500243273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93EE3D2AA2169500243273 /* SceneDelegate.swift */; };
 		2A93EE402AA2169500243273 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93EE3F2AA2169500243273 /* AuthViewController.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A2D9F732AA9DF8D002FBDC3 /* PasswordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordButton.swift; sourceTree = "<group>"; };
+		2A2D9F752AA9F1AE002FBDC3 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		2A93EE382AA2169500243273 /* VK Personal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK Personal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A93EE3B2AA2169500243273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A93EE3D2AA2169500243273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 				2A93EE6F2AA2A2F800243273 /* BigButton.swift */,
 				2A93EE752AA2AAAF00243273 /* LogoImageView.swift */,
 				2A93EE732AA2A90500243273 /* TitleLabel.swift */,
+				2A2D9F732AA9DF8D002FBDC3 /* PasswordButton.swift */,
+				2A2D9F752AA9F1AE002FBDC3 /* PasswordTextField.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -304,6 +310,8 @@
 				2A93EE742AA2A90500243273 /* TitleLabel.swift in Sources */,
 				2A93EE3E2AA2169500243273 /* SceneDelegate.swift in Sources */,
 				2A93EE762AA2AAAF00243273 /* LogoImageView.swift in Sources */,
+				2A2D9F742AA9DF8D002FBDC3 /* PasswordButton.swift in Sources */,
+				2A2D9F762AA9F1AE002FBDC3 /* PasswordTextField.swift in Sources */,
 				2A93EE5E2AA21BB100243273 /* VKBaseController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,9 +21,15 @@ class VKBaseView: UIView {
 }
 
 @objc extension VKBaseView: BaseViewProtocol {
+    func configureView() {
+        addSubviews()
+        setupLayout()
+        configureAppearance()
+    }
+    
     func addSubviews() { }
 
-    internal func setupLayout() { }
+    func setupLayout() { }
 
-    internal func configureAppearance() {}
+    func configureAppearance() {}
 }
