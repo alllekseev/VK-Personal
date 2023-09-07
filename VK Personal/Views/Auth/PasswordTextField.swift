@@ -26,6 +26,7 @@ private extension PasswordTextField {
         delegate = self
         rightView = passwordButton
         rightViewMode = .always
+        returnKeyType = .continue
 
         addActions()
     }

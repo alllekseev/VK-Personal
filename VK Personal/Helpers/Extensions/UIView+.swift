@@ -13,8 +13,8 @@ extension UIView {
         addSubview(view)
     }
 
-    func debugFrame(_ view: UIView, with color: UIColor = .red) {
-        view.layer.borderWidth = 1
-        view.layer.borderColor = color.cgColor
+    func debugOutline(with color: UIColor = .red) {
+        layer.borderWidth = 1
+        layer.borderColor = color.cgColor
     }
 }

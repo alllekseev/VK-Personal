@@ -39,6 +39,13 @@ final class AuthView: VKBaseView {
 }
 
 extension AuthView {
+    override func configureView() {
+        super.configureView()
+
+        loginTextField.keyboardType = .emailAddress
+        loginTextField.returnKeyType = .next
+    }
+    
     override func addSubviews() {
         super.addSubviews()
 
