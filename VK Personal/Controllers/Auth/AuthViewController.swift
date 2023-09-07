@@ -11,10 +11,6 @@ final class AuthViewController: VKBaseController {
 
     // MARK: - Private Properties
     private let authView = AuthView()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 }
 
 extension AuthViewController {

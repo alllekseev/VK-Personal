@@ -15,9 +15,7 @@ class VKBaseController: UIViewController {
 }
 
 @objc extension VKBaseController: BaseViewProtocol {
-    func addSubviews() {
-        print("1")
-    }
+    func addSubviews() { }
     func setupLayout() { }
     func configureAppearance() {
         view.backgroundColor = .lightGray

@@ -40,6 +40,14 @@ final class AuthTextField: UITextField {
         textColor = .black
         layer.cornerRadius = 16
         backgroundColor = Colors.white
+
+        // FIXME: - fix shadow
+        layer.shadowPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height), cornerRadius: 0).cgPath
+        layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+        layer.shadowOpacity = 1
+        layer.shadowRadius = 10
+        layer.shadowOffset = CGSize(width: 0, height: 4)
+
         attributedPlaceholder = NSAttributedString(
             string: placeholder,
             attributes: [
