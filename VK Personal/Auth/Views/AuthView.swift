@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol AuthViewDelegate: AnyObject {
+    func tappedLogin(_ vc: UIViewController)
+}
+
 final class AuthView: VKBaseView {
-    private let loginTextField = AuthTextField(placeholder: "Логин")
-    private let passwordTextField = PasswordTextField(placeholder: "Пароль")
+
+    weak var delegate: AuthViewDelegate?
+
+    private lazy var loginTextField = AuthTextField(placeholder: "Логин", frame: frame)
+    private lazy var passwordTextField = PasswordTextField(placeholder: "Пароль", frame: frame)
     private let logoImageView = LogoImageView(image: Icons.logo!)
     private let titleLabel = TitleLabel(text: "Авторизация")
     private let loginButton = BigButton(title: "Войти", height: 64)
@@ -41,9 +48,13 @@ final class AuthView: VKBaseView {
 extension AuthView {
     override func configureView() {
         super.configureView()
+        addActions()
 
         loginTextField.keyboardType = .emailAddress
         loginTextField.returnKeyType = .next
+
+        loginTextField.delegate = self
+//        passwordTextField.delegate = self
     }
     
     override func addSubviews() {
@@ -69,7 +80,6 @@ extension AuthView {
             mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 83),
             mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-//            mainStackView.topAnchor.constraint(equalTo: topAnchor),
 
             textFieldStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 54),
             textFieldStackView.leadingAnchor.constraint(equalTo: mainStackView.leadingAnchor),
@@ -81,6 +91,7 @@ extension AuthView {
             passwordTextField.leadingAnchor.constraint(equalTo: textFieldStackView.leadingAnchor),
             passwordTextField.trailingAnchor.constraint(equalTo: textFieldStackView.trailingAnchor),
 
+
             loginButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             loginButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -64),
             loginButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
@@ -91,7 +102,25 @@ extension AuthView {
         super.configureAppearance()
 
         backgroundColor = Colors.mainBackground
+    }
 
-        //TODO: - Make Password Field private
+    func addActions() {
+        loginButton.addTarget(nil, action: #selector(tappedLogin), for: .touchUpInside)
+    }
+}
+
+
+extension AuthView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        loginTextField.resignFirstResponder()
+        passwordTextField.becomeFirstResponder()
+
+        return true
+    }
+}
+
+@objc extension AuthView {
+    func tappedLogin() {
+        self.delegate?.tappedLogin(TabBarController())
     }
 }

@@ -12,8 +12,8 @@ final class PasswordTextField: AuthTextField {
 
     private var isPrivate = true
 
-    override init(placeholder: String) {
-        super.init(placeholder: placeholder)
+    override init(placeholder: String, frame: CGRect) {
+        super.init(placeholder: placeholder, frame: frame)
 
         configureView()
     }
@@ -55,5 +55,10 @@ extension PasswordTextField: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let text = textField.text else { return }
         passwordButton.isEnabled = !text.isEmpty
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
