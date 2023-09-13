@@ -56,6 +56,12 @@ final class GroupsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        nameLabel.text = nil
+        descriptionLabel.text = nil
+    }
+
     func configureCell(name: String, description: String) {
         nameLabel.text = name
         descriptionLabel.text = description
