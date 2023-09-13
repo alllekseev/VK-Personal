@@ -13,4 +13,3 @@ protocol BaseViewProtocol {
     func setupLayout()
     func configureAppearance()
 }
-

@@ -22,7 +22,7 @@ final class BigButton: UIButton {
     private func setupButton(title: String, height: CGFloat) {
 
 //        backgroundColor = Colors.main
-        layer.backgroundColor = Colors.main?.cgColor
+        layer.backgroundColor = Colors.main.cgColor
         layer.cornerRadius = 24
 
         setTitle(title, for: .normal)

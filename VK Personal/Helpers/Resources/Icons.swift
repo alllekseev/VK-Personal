@@ -11,4 +11,14 @@ enum Icons {
     static let logo = UIImage(named: "logo")
     static let passwordHide = UIImage(named: "passwordHide")
     static let passwordShow = UIImage(named: "passwordShow")
+
+    enum TabBarIcons {
+        static func icon(for tab: Tabs) -> UIImage? {
+            switch tab {
+            case .friends: return UIImage(systemName: "person.2")
+            case .groups: return UIImage(systemName: "rectangle.stack.badge.person.crop")
+            case .photos: return UIImage(systemName: "photo")
+            }
+        }
+    }
 }
