@@ -8,6 +8,9 @@
 import UIKit
 
 final class PhotosCollectionViewController: UICollectionViewController {
+
+    private let networkService = NetworkService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +21,8 @@ final class PhotosCollectionViewController: UICollectionViewController {
         collectionView.delegate = self
 
         configureAppearance()
+
+        networkService.fetchPhotos(quantity: 5)
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

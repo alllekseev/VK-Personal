@@ -9,12 +9,16 @@ import UIKit
 
 final class GroupsTableViewController: UITableViewController {
 
+    private let networkService = NetworkService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.register(GroupsTableViewCell.self, forCellReuseIdentifier: GroupsTableViewCell.reuseIdentifier)
 
         configureAppearance()
+
+        networkService.fetchGroups(quantity: 5)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
