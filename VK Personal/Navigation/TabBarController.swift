@@ -23,12 +23,8 @@ final class TabBarController: UITabBarController {
 
     private func configureAppearance() {
         tabBar.tintColor = Colors.main
-        tabBar.barTintColor = Colors.mainInactive
         tabBar.backgroundColor = .white
-
-        tabBar.layer.borderColor = Colors.textPlaceholder.cgColor
-        tabBar.layer.borderWidth = 1
-        tabBar.layer.masksToBounds = true
+        tabBar.isTranslucent = true
 
 
         let controllers: [NavBarController] = Tabs.allCases.map { tab in
@@ -49,10 +45,9 @@ final class TabBarController: UITabBarController {
 
     private func getController(for tab: Tabs) -> UIViewController {
         switch tab {
-        case .friends: return FriendsTableViewController()
-        case .groups: return GroupsTableViewController()
-        case .photos: return PhotosCollectionViewController(
-            collectionViewLayout: UICollectionViewFlowLayout())
+        case .friends: return FriendsTableViewController(style: .insetGrouped)
+        case .groups: return GroupsTableViewController(style: .insetGrouped)
+        case .photos: return PhotosCollectionViewController(collectionViewLayout: UICollectionViewLayout())
         }
     }
 }

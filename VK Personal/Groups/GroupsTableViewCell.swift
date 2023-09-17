@@ -16,7 +16,7 @@ final class GroupsTableViewCell: UITableViewCell {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = Colors.text
-        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.textAlignment = .left
         return label
     }()
@@ -24,7 +24,7 @@ final class GroupsTableViewCell: UITableViewCell {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = Colors.textPlaceholder
-        label.font = UIFont.italicSystemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.textAlignment = .left
         return label
     }()
@@ -34,13 +34,13 @@ final class GroupsTableViewCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .equalSpacing
-        stackView.spacing = 8
+        stackView.spacing = 2
         return stackView
     }()
 
     private let stackViewContainer: UIStackView = {
         let stackView = UIStackView()
-        stackView.alignment = .leading
+        stackView.alignment = .center
         stackView.distribution = .fillProportionally
         stackView.spacing = 16
         return stackView
@@ -87,14 +87,14 @@ extension GroupsTableViewCell: BaseViewProtocol {
 
     func setupLayout() {
         NSLayoutConstraint.activate([
-            stackViewContainer.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            stackViewContainer.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             stackViewContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            stackViewContainer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            stackViewContainer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             stackViewContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
         ])
     }
 
     func configureAppearance() {
-        backgroundColor = Colors.mainBackground
+        backgroundColor = Colors.white
     }
 }

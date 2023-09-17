@@ -21,10 +21,10 @@ final class PhotoView: UIImageView {
     
     func configureView() {
         backgroundColor = Colors.textPlaceholder
-        layer.cornerRadius = 24
+        layer.cornerRadius = 18
 
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 48),
+            heightAnchor.constraint(equalToConstant: 36),
             widthAnchor.constraint(equalTo: heightAnchor)
         ])
     }

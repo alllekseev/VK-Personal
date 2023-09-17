@@ -20,11 +20,11 @@ final class FriendsTableViewController: UITableViewController {
 
         configureAppearance()
 
-        networkService.fetchFriends(quantity: 5)
+//        networkService.fetchFriends(quantity: 5)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        20
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,6 +41,7 @@ private extension FriendsTableViewController {
 
     func configureAppearance() {
         title = Strings.TabBar.title(for: .friends)
-        view.backgroundColor = Colors.mainBackground
+        view.backgroundColor = Colors.background
+        tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
     }
 }

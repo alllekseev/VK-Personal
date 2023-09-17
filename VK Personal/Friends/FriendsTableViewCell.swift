@@ -16,14 +16,14 @@ final class FriendsTableViewCell: UITableViewCell {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = Colors.text
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.textAlignment = .left
         return label
     }()
 
     private let stackViewContainer: UIStackView = {
         let stackView = UIStackView()
-        stackView.alignment = .leading
+        stackView.alignment = .center
         stackView.distribution = .fillProportionally
         stackView.spacing = 16
         return stackView
@@ -41,6 +41,7 @@ final class FriendsTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         nameLabel.text = nil
+        photoView.image = nil
     }
 
     func configureCell(name: String) {
@@ -64,15 +65,16 @@ extension FriendsTableViewCell: BaseViewProtocol {
 
     func setupLayout() {
         NSLayoutConstraint.activate([
-            stackViewContainer.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            stackViewContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            stackViewContainer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            stackViewContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            stackViewContainer.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            stackViewContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            stackViewContainer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+            stackViewContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
         ])
     }
 
     func configureAppearance() {
-        backgroundColor = Colors.mainBackground
+
+        backgroundColor = Colors.white
     }
 
 
