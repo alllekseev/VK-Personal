@@ -6,102 +6,95 @@
 //
 
 import UIKit
+import WebKit
 
 final class AuthViewController: VKBaseController {
 
-    // MARK: - Private Properties
-    private lazy var authView = AuthView(frame: view.bounds)
+    private lazy var webView: WKWebView = {
+        let webView = WKWebView()
+        webView.navigationDelegate = self
+        return webView
+    }()
 
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        authView.delegate = self
 
-        self.hideKeyboardWhenTappedAround()
+        let urlComponents = URLComponents(string: "\(ApiData.authUrlString)\(ApiData.Endpoints.authorize)")
+        guard var urlComponents else { return }
+        urlComponents.queryItems = [
+            URLQueryItem(name: "client_id", value: "51749293"),
+            URLQueryItem(name: "redirect_uri", value: ApiData.blankUrlString),
+            URLQueryItem(name: "scope", value: "262150"),
+            URLQueryItem(name: "display", value: "mobile"),
+            URLQueryItem(name: "response_type", value: "token"),
+        ]
 
-//        registerForKeyboardNotifications()
+        guard let url = urlComponents.url else { return }
+
+//        let url = URL(string: "https://oauth.vk.com/authorize?client_id=51749293&redirect_uri=https://oauth.vk.com/blank.html&scope=12&display=mobile&response_type=token")
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
 
-    // MARK: - deinit
-//    deinit {
-//        removeKeyboardNotifications()
-//    }
-
-    // MARK: - Private Methods
-//    private func registerForKeyboardNotifications() {
-//        NotificationCenter.default.addObserver(
-//            self,
-//            selector: #selector(keyboardWillShow),
-//            name: UIResponder.keyboardWillShowNotification,
-//            object: nil)
-//
-//        NotificationCenter.default.addObserver(
-//            self,
-//            selector: #selector(keyboardWillHide),
-//            name: UIResponder.keyboardWillHideNotification,
-//            object: nil)
-//    }
-
-//    private func removeKeyboardNotifications() {
-//        NotificationCenter.default.removeObserver(
-//            self,
-//            name: UIResponder.keyboardWillShowNotification,
-//            object: nil)
-//
-//        NotificationCenter.default.removeObserver(
-//            self,
-//            name: UIResponder.keyboardWillHideNotification,
-//            object: nil)
-//    }
 }
 
 extension AuthViewController {
     override func addSubviews() {
         super.addSubviews()
 
-        view.setupView(authView)
-    }
+        view.setupView(webView)
 
+    }
     override func setupLayout() {
         super.setupLayout()
 
         NSLayoutConstraint.activate([
-            authView.topAnchor.constraint(equalTo: view.topAnchor),
-            authView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            authView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            authView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            authView.widthAnchor.constraint(equalTo: view.widthAnchor)
+            webView.topAnchor.constraint(equalTo: view.topAnchor),
+            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
-
-//    override func configureAppearance() {
-//        super.configureAppearance()
-//        view.backgroundColor = Colors.mainBackground
-//    }
 }
 
-//@objc private extension AuthViewController {
-//    func keyboardWillShow(_ notification: NSNotification) {
-//        let userInfo = notification.userInfo
-//        if let keyboardFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue) {
-//            let keyboardFrameSize = keyboardFrame.cgRectValue
-//            scrollView.contentOffset = CGPoint(x: 0, y: keyboardFrameSize.height)
-//        }
-//    }
-//
-//    func keyboardWillHide() {
-//        scrollView.contentOffset = CGPoint.zero
-//    }
-//}
+extension AuthViewController: WKNavigationDelegate {
 
-extension AuthViewController: AuthViewDelegate {
-    func tappedLogin(_ vc: UIViewController) {
 
-//        navigationController?.pushViewController(vc, animated: true)
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        guard let url = navigationResponse.response.url,
+              url.path == ApiData.blankHtml,
+              let fragment = url.fragment else {
+            decisionHandler(.allow)
+            return
+        }
+        let params = fragment
+            .components(separatedBy: "&")
+            .map { $0.components(separatedBy: "=") }
+            .reduce([String: String]()) { result, param in
+                var dict = result
+                let key = param[0]
+                let value = param[1]
+                dict[key] = value
+                return dict
+            }
+
+        let token = params["access_token"]
+        let userID = params["user_id"]
+        guard let token,
+              let userID else { return }
+        ApiData.token = token
+        ApiData.userID = userID
+        print("token: \(String(describing: ApiData.token))")
+        print("userID: \(String(describing: ApiData.userID))")
+        decisionHandler(.cancel)
+        webView.removeFromSuperview()
+
+        navigationController?.pushViewController(TabBarController(), animated: true)
 
         guard let firstScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let firstWindow = firstScene.windows.first else { return }
 
-        firstWindow.rootViewController = vc
+        firstWindow.rootViewController = TabBarController()
     }
 }

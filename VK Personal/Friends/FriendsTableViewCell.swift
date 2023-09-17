@@ -38,6 +38,11 @@ final class FriendsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        nameLabel.text = nil
+    }
+
     func configureCell(name: String) {
         nameLabel.text = name
     }

@@ -8,6 +8,9 @@
 import UIKit
 
 final class FriendsTableViewController: UITableViewController {
+
+    private let networkService = NetworkService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,6 +19,8 @@ final class FriendsTableViewController: UITableViewController {
             forCellReuseIdentifier: FriendsTableViewCell.reuseIdentifier)
 
         configureAppearance()
+
+        networkService.fetchFriends(quantity: 5)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
