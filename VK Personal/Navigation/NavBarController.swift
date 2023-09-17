@@ -16,13 +16,11 @@ final class NavBarController: UINavigationController {
     }
 
     private func configure() {
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.background
         navigationBar.isTranslucent = false
-        navigationBar.standardAppearance.titleTextAttributes = [
-            .foregroundColor: Colors.main,
-            .font: UIFont.boldSystemFont(ofSize: 16)
-        ]
+        navigationBar.prefersLargeTitles = true
+        navigationBar.shadowImage = UIImage(named: "Banner")
 
-        navigationBar.addBottomBorder(with: Colors.textPlaceholder, height: 1)
+//        navigationBar.addBottomBorder(with: Colors.separator, height: 1)
     }
 }

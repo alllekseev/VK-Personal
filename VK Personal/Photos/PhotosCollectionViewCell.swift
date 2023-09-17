@@ -10,11 +10,7 @@ import UIKit
 final class PhotosCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "PhotosCollectionViewCell"
 
-    private let photoView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.layer.cornerRadius = 24
-        return imageView
-    }()
+    private let photoView = UIImageView()
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -57,7 +53,8 @@ extension PhotosCollectionViewCell: BaseViewProtocol {
     }
 
     func configureAppearance() {
-        backgroundColor = Colors.mainBackground
+        backgroundColor = Colors.white
+        layer.cornerRadius = 20
     }
 
 

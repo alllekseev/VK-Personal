@@ -17,7 +17,7 @@ enum Icons {
             switch tab {
             case .friends: return UIImage(systemName: "person.2")
             case .groups: return UIImage(systemName: "rectangle.stack.badge.person.crop")
-            case .photos: return UIImage(systemName: "photo")
+            case .photos: return UIImage(systemName: "photo.on.rectangle")
             }
         }
     }

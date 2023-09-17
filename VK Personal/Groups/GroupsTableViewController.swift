@@ -22,7 +22,7 @@ final class GroupsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        20
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,6 +38,7 @@ final class GroupsTableViewController: UITableViewController {
 private extension GroupsTableViewController {
     func configureAppearance() {
         title = Strings.TabBar.title(for: .groups)
-        tableView.backgroundColor = Colors.mainBackground
+        tableView.backgroundColor = Colors.background
+        tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
     }
 }
