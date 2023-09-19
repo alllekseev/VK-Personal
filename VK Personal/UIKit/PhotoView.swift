@@ -19,12 +19,13 @@ final class PhotoView: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureView() {
+    private func configureView() {
         backgroundColor = Colors.textPlaceholder
-        layer.cornerRadius = 18
+        layer.cornerRadius = 30
+        layer.masksToBounds = true
 
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 36),
+            heightAnchor.constraint(equalToConstant: 60),
             widthAnchor.constraint(equalTo: heightAnchor)
         ])
     }

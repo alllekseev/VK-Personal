@@ -9,22 +9,22 @@ import Foundation
 
 enum ApiData {
     static let authUrlString = "https://oauth.vk.com"
+    static let authEndpoint = "/authorize"
     static let blankUrlString = "https://oauth.vk.com/blank.html"
     static let blankHtml = "/blank.html"
-
-    static let baseUrlString = "https://api.vk.com/method"
 
     static var token = ""
     static var userID = ""
 
-    enum MethodType {
-        static let get = ".get"
+    static let baseUrlString = "https://api.vk.com/method"
+
+    enum Endpoints: String {
+        case friends = "/friends"
+        case groups = "/groups"
+        case photos = "/photos"
     }
 
-    enum Endpoints {
-        static let authorize = "/authorize"
-        static let friends = "/friends"
-        static let groups = "/groups"
-        static let photos = "/photos"
+    enum MethodType: String {
+        case get = ".get"
     }
 }

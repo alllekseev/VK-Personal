@@ -20,7 +20,7 @@ final class AuthViewController: VKBaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let urlComponents = URLComponents(string: "\(ApiData.authUrlString)\(ApiData.Endpoints.authorize)")
+        let urlComponents = URLComponents(string: "\(ApiData.authUrlString)\(ApiData.authEndpoint)")
         guard var urlComponents else { return }
         urlComponents.queryItems = [
             URLQueryItem(name: "client_id", value: "51749293"),
@@ -32,7 +32,6 @@ final class AuthViewController: VKBaseController {
 
         guard let url = urlComponents.url else { return }
 
-//        let url = URL(string: "https://oauth.vk.com/authorize?client_id=51749293&redirect_uri=https://oauth.vk.com/blank.html&scope=12&display=mobile&response_type=token")
         let request = URLRequest(url: url)
         webView.load(request)
     }
@@ -85,8 +84,6 @@ extension AuthViewController: WKNavigationDelegate {
               let userID else { return }
         ApiData.token = token
         ApiData.userID = userID
-        print("token: \(String(describing: ApiData.token))")
-        print("userID: \(String(describing: ApiData.userID))")
         decisionHandler(.cancel)
         webView.removeFromSuperview()
 

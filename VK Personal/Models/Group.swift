@@ -9,12 +9,16 @@ import Foundation
 
 struct Group: Decodable {
     let address: String
-    let photo: String?
+    let photoUrl: URL
+    var photoData: Data?
     let name: String?
+    let description: String?
 
     enum CodingKeys: String, CodingKey {
         case address = "screen_name"
-        case photo = "photo_50"
+        case photoUrl = "photo_50"
+        case photoData
         case name
+        case description
     }
 }

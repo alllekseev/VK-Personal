@@ -11,18 +11,28 @@ final class GroupsTableViewController: UITableViewController {
 
     private let networkService = NetworkService()
 
+    private var groups = [Group]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureAppearance()
+        
         tableView.register(GroupsTableViewCell.self, forCellReuseIdentifier: GroupsTableViewCell.reuseIdentifier)
 
-        configureAppearance()
+        showIndicator()
 
-        networkService.fetchGroups(quantity: 5)
+        networkService.getGroups { [weak self] groups in
+            self?.groups = groups
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+                self?.hideIndicator()
+            }
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        20
+        groups.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,7 +40,7 @@ final class GroupsTableViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        cell.configureCell(name: "Group \(indexPath.row + 1)", description: "Description")
+        cell.configureCell(group: groups[indexPath.row])
         return cell
     }
 }
