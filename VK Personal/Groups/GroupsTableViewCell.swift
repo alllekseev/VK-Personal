@@ -98,6 +98,6 @@ extension GroupsTableViewCell: BaseViewProtocol {
     }
 
     func configureAppearance() {
-        backgroundColor = Colors.white
+        backgroundColor = Colors.clearWhite
     }
 }

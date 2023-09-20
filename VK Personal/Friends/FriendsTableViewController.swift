@@ -60,6 +60,11 @@ private extension FriendsTableViewController {
 
 @objc private extension FriendsTableViewController {
     func tappedNavigateToProfile() {
-        navigationController?.pushViewController(ProfileViewController(), animated: true)
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        animation.type = .fade
+        animation.duration = 1.5
+        navigationController?.view.layer.add(animation, forKey: nil)
+        navigationController?.pushViewController(ProfileViewController(), animated: false)
     }
 }

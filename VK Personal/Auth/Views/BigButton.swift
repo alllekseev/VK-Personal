@@ -26,7 +26,7 @@ final class BigButton: UIButton {
         layer.cornerRadius = 24
 
         setTitle(title, for: .normal)
-        titleLabel?.textColor = Colors.white
+        titleLabel?.textColor = Colors.clearWhite
         titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
         heightAnchor.constraint(equalToConstant: height).isActive = true
     }

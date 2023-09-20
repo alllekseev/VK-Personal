@@ -15,6 +15,6 @@ enum Colors {
     static let text =  UIColor(red: 0, green: 0, blue: 0, alpha: 1)
     static let textPlaceholder =  UIColor(red: 0.24, green: 0.24, blue: 0.26, alpha: 0.3)
     static let additional =  UIColor(red: 0.38, green: 0.56, blue: 1, alpha: 1)
-    static let white =  UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+    static let clearWhite =  UIColor(red: 1, green: 1, blue: 1, alpha: 1)
     static let separator =  UIColor(red: 0.24, green: 0.24, blue: 0.24, alpha: 0.2)
 }

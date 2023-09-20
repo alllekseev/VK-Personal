@@ -58,7 +58,7 @@ extension PhotosCollectionViewCell: BaseViewProtocol {
     }
 
     func configureAppearance() {
-        backgroundColor = Colors.white
+        backgroundColor = Colors.clearWhite
         layer.cornerRadius = 20
         layer.masksToBounds = true
     }

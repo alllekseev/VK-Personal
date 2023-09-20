@@ -91,7 +91,7 @@ extension FriendsTableViewCell: BaseViewProtocol {
 
     func configureAppearance() {
 
-        backgroundColor = Colors.white
+        backgroundColor = Colors.clearWhite
     }
 
 
