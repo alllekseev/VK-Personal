@@ -29,7 +29,7 @@ final class PhotosCollectionViewCell: UICollectionViewCell {
 
     func configureCell(photo: Photo) {
         photo.sizes.enumerated().forEach { (index, size) in
-            if size.type == PhotoType.m.rawValue,
+            if size.type == PhotoType.x.rawValue,
                let data = size.photoData {
                 photoView.image = UIImage(data: data)
             }

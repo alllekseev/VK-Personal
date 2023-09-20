@@ -8,7 +8,7 @@
 import Foundation
 
 struct ResponseWrapper<T: Decodable>: Decodable {
-    var response: Response<T>
+    let response: T
 }
 
 struct Response<T: Decodable>: Decodable {

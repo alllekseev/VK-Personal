@@ -13,6 +13,8 @@ final class FriendsTableViewController: UITableViewController {
 
     private var friends = [Friend]()
 
+    private lazy var profileNavButton = ProfileNavButton(frame: view.bounds)
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,5 +53,13 @@ private extension FriendsTableViewController {
         title = Strings.TabBar.title(for: .friends)
         view.backgroundColor = Colors.background
         tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
+        profileNavButton.addTarget(self, action: #selector(tappedNavigateToProfile), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileNavButton)
+    }
+}
+
+@objc private extension FriendsTableViewController {
+    func tappedNavigateToProfile() {
+        navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
 }

@@ -18,11 +18,15 @@
 		2A0227322AB1E67100DE2C3B /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0227312AB1E67100DE2C3B /* PhotoView.swift */; };
 		2A0227342AB1EC6800DE2C3B /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0227332AB1EC6800DE2C3B /* PhotosCollectionViewCell.swift */; };
 		2A178EDA2AB9AB2D00CC4FEA /* OnlineIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A178ED92AB9AB2D00CC4FEA /* OnlineIndicatorView.swift */; };
+		2A178EDD2AB9D18D00CC4FEA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A178EDC2AB9D18D00CC4FEA /* ProfileViewController.swift */; };
+		2A178EE22AB9D1C200CC4FEA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A178EE12AB9D1C200CC4FEA /* ProfileView.swift */; };
+		2A178EE42AB9DAAF00CC4FEA /* ProfileNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A178EE32AB9DAAF00CC4FEA /* ProfileNavButton.swift */; };
 		2A21483D2AB81F5600403A83 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A21483C2AB81F5600403A83 /* ImageDownloader.swift */; };
 		2A2148402AB8AB3C00403A83 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A21483F2AB8AB3C00403A83 /* NetworkService.swift */; };
 		2A2D9F742AA9DF8D002FBDC3 /* PasswordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D9F732AA9DF8D002FBDC3 /* PasswordButton.swift */; };
 		2A2D9F762AA9F1AE002FBDC3 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D9F752AA9F1AE002FBDC3 /* PasswordTextField.swift */; };
 		2A2D9F7B2AAA084F002FBDC3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D9F7A2AAA084F002FBDC3 /* UIViewController+Extensions.swift */; };
+		2A4C65E82ABA53A300D01220 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C65E72ABA53A300D01220 /* Account.swift */; };
 		2A6FFAE72AB34C2100D1738B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FFAE62AB34C2100D1738B /* Friend.swift */; };
 		2A6FFAE92AB34C5600D1738B /* ResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FFAE82AB34C5600D1738B /* ResponseWrapper.swift */; };
 		2A6FFAEB2AB34DD500D1738B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FFAEA2AB34DD500D1738B /* Photo.swift */; };
@@ -62,11 +66,15 @@
 		2A0227312AB1E67100DE2C3B /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		2A0227332AB1EC6800DE2C3B /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		2A178ED92AB9AB2D00CC4FEA /* OnlineIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineIndicatorView.swift; sourceTree = "<group>"; };
+		2A178EDC2AB9D18D00CC4FEA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2A178EE12AB9D1C200CC4FEA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2A178EE32AB9DAAF00CC4FEA /* ProfileNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavButton.swift; sourceTree = "<group>"; };
 		2A21483C2AB81F5600403A83 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		2A21483F2AB8AB3C00403A83 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		2A2D9F732AA9DF8D002FBDC3 /* PasswordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordButton.swift; sourceTree = "<group>"; };
 		2A2D9F752AA9F1AE002FBDC3 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		2A2D9F7A2AAA084F002FBDC3 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		2A4C65E72ABA53A300D01220 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		2A6FFAE62AB34C2100D1738B /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		2A6FFAE82AB34C5600D1738B /* ResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseWrapper.swift; sourceTree = "<group>"; };
 		2A6FFAEA2AB34DD500D1738B /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -166,6 +174,24 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		2A178EDB2AB9D17A00CC4FEA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2A178EDC2AB9D18D00CC4FEA /* ProfileViewController.swift */,
+				2A178EE02AB9D1B000CC4FEA /* Views */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		2A178EE02AB9D1B000CC4FEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A178EE12AB9D1C200CC4FEA /* ProfileView.swift */,
+				2A178EE32AB9DAAF00CC4FEA /* ProfileNavButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2A6FFAEE2AB354DA00D1738B /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +231,7 @@
 				2A93EE582AA21A6F00243273 /* Models */,
 				2A002D6D2AAF6742002DAF97 /* Navigation */,
 				2A02271E2AAFAD2800DE2C3B /* Photos */,
+				2A178EDB2AB9D17A00CC4FEA /* Profile */,
 				2A6FFAEE2AB354DA00D1738B /* Services */,
 				2A93EE562AA21A1900243273 /* SupportingFiles */,
 				2A0227302AB1E65D00DE2C3B /* UIKit */,
@@ -285,6 +312,7 @@
 				2A6FFAEA2AB34DD500D1738B /* Photo.swift */,
 				2A6FFAE82AB34C5600D1738B /* ResponseWrapper.swift */,
 				2AEF1C202AB4A55500E042DD /* Group.swift */,
+				2A4C65E72ABA53A300D01220 /* Account.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -386,6 +414,7 @@
 				2A93EE6E2AA295C200243273 /* UIView+Extensions.swift in Sources */,
 				2A0227342AB1EC6800DE2C3B /* PhotosCollectionViewCell.swift in Sources */,
 				2A002D742AAF6A82002DAF97 /* Strings.swift in Sources */,
+				2A4C65E82ABA53A300D01220 /* Account.swift in Sources */,
 				2A02272D2AB1DD3600DE2C3B /* FriendsTableViewCell.swift in Sources */,
 				2A93EE612AA21E2000243273 /* VKBaseView.swift in Sources */,
 				2A6FFAE92AB34C5600D1738B /* ResponseWrapper.swift in Sources */,
@@ -397,6 +426,7 @@
 				2A93EE5B2AA21AC800243273 /* AuthTextField.swift in Sources */,
 				2A02272F2AB1E57D00DE2C3B /* GroupsTableViewCell.swift in Sources */,
 				2A21483D2AB81F5600403A83 /* ImageDownloader.swift in Sources */,
+				2A178EE22AB9D1C200CC4FEA /* ProfileView.swift in Sources */,
 				2A2D9F7B2AAA084F002FBDC3 /* UIViewController+Extensions.swift in Sources */,
 				2A002D702AAF6832002DAF97 /* NavBarController.swift in Sources */,
 				2A2148402AB8AB3C00403A83 /* NetworkService.swift in Sources */,
@@ -407,6 +437,7 @@
 				2A0227282AAFAD9000DE2C3B /* PhotosCollectionViewController.swift in Sources */,
 				2A93EE6C2AA2930200243273 /* BaseViewProtocol.swift in Sources */,
 				2A178EDA2AB9AB2D00CC4FEA /* OnlineIndicatorView.swift in Sources */,
+				2A178EE42AB9DAAF00CC4FEA /* ProfileNavButton.swift in Sources */,
 				2A93EE3C2AA2169500243273 /* AppDelegate.swift in Sources */,
 				2A93EE742AA2A90500243273 /* TitleLabel.swift in Sources */,
 				2A6FFAEB2AB34DD500D1738B /* Photo.swift in Sources */,
@@ -415,6 +446,7 @@
 				2A2D9F742AA9DF8D002FBDC3 /* PasswordButton.swift in Sources */,
 				2A2D9F762AA9F1AE002FBDC3 /* PasswordTextField.swift in Sources */,
 				2AEF1C1F2AB47F7500E042DD /* Data+Extensions.swift in Sources */,
+				2A178EDD2AB9D18D00CC4FEA /* ProfileViewController.swift in Sources */,
 				2A6FFAED2AB34FB200D1738B /* ApiData.swift in Sources */,
 				2A93EE5E2AA21BB100243273 /* VKBaseController.swift in Sources */,
 			);

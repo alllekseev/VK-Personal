@@ -20,6 +20,16 @@ final class AuthViewController: VKBaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        guard ApiData.token == nil,
+              ApiData.userID == nil else {
+            navigateToApp()
+            return
+        }
+
+        auth()
+    }
+
+    func auth() {
         let urlComponents = URLComponents(string: "\(ApiData.authUrlString)\(ApiData.authEndpoint)")
         guard var urlComponents else { return }
         urlComponents.queryItems = [
@@ -34,6 +44,15 @@ final class AuthViewController: VKBaseController {
 
         let request = URLRequest(url: url)
         webView.load(request)
+    }
+
+    func navigateToApp() {
+        navigationController?.pushViewController(TabBarController(), animated: true)
+
+        guard let firstScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let firstWindow = firstScene.windows.first else { return }
+
+        firstWindow.rootViewController = TabBarController()
     }
 
 }
@@ -87,11 +106,6 @@ extension AuthViewController: WKNavigationDelegate {
         decisionHandler(.cancel)
         webView.removeFromSuperview()
 
-        navigationController?.pushViewController(TabBarController(), animated: true)
-
-        guard let firstScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let firstWindow = firstScene.windows.first else { return }
-
-        firstWindow.rootViewController = TabBarController()
+        navigateToApp()
     }
 }
