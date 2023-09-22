@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import OSLog
 
 final class ProfileView: VKBaseView {
+
+    let logger = Logger(subsystem: "VKPersonal", category: "ProfileView")
 
     private let photoView: UIImageView = {
         let imageView = UIImageView()
@@ -22,8 +25,6 @@ final class ProfileView: VKBaseView {
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textColor = Colors.text
         label.textAlignment = .center
-
-        label.text = "Алексеев Олег"
         return label
     }()
 
@@ -37,9 +38,11 @@ final class ProfileView: VKBaseView {
     }()
 
     func configure(account: Account) {
-        nameLabel.text = "\(account.name) \(account.surname)"
+        nameLabel.text = account.fullName
         guard let photoData = account.photoData else { return }
         photoView.image = UIImage(data: photoData)
+
+        logger.notice("Name Label Text is '\(account.fullName)'.")
     }
 }
 

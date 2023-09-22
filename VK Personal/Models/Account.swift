@@ -8,8 +8,8 @@
 import Foundation
 
 struct Account: Decodable {
-    let name: String
-    let surname: String
+    let name: String?
+    let surname: String?
     let photoUrl: URL?
     var photoData: Data?
 
@@ -18,5 +18,9 @@ struct Account: Decodable {
         case surname = "last_name"
         case photoUrl = "photo_200"
         case photoData
+    }
+
+    var fullName: String {
+        "\(name ?? "") \(surname ?? "")"
     }
 }

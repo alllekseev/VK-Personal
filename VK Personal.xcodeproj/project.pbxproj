@@ -23,6 +23,7 @@
 		2A178EE42AB9DAAF00CC4FEA /* ProfileNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A178EE32AB9DAAF00CC4FEA /* ProfileNavButton.swift */; };
 		2A21483D2AB81F5600403A83 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A21483C2AB81F5600403A83 /* ImageDownloader.swift */; };
 		2A2148402AB8AB3C00403A83 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A21483F2AB8AB3C00403A83 /* NetworkService.swift */; };
+		2A2716E72ABC3BB300F221DB /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2716E62ABC3BB300F221DB /* ApiError.swift */; };
 		2A2D9F742AA9DF8D002FBDC3 /* PasswordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D9F732AA9DF8D002FBDC3 /* PasswordButton.swift */; };
 		2A2D9F762AA9F1AE002FBDC3 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D9F752AA9F1AE002FBDC3 /* PasswordTextField.swift */; };
 		2A2D9F7B2AAA084F002FBDC3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D9F7A2AAA084F002FBDC3 /* UIViewController+Extensions.swift */; };
@@ -71,6 +72,7 @@
 		2A178EE32AB9DAAF00CC4FEA /* ProfileNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavButton.swift; sourceTree = "<group>"; };
 		2A21483C2AB81F5600403A83 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		2A21483F2AB8AB3C00403A83 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		2A2716E62ABC3BB300F221DB /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		2A2D9F732AA9DF8D002FBDC3 /* PasswordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordButton.swift; sourceTree = "<group>"; };
 		2A2D9F752AA9F1AE002FBDC3 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		2A2D9F7A2AAA084F002FBDC3 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				2A6FFAE82AB34C5600D1738B /* ResponseWrapper.swift */,
 				2AEF1C202AB4A55500E042DD /* Group.swift */,
 				2A4C65E72ABA53A300D01220 /* Account.swift */,
+				2A2716E62ABC3BB300F221DB /* ApiError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				2A002D722AAF68BA002DAF97 /* TabBarController.swift in Sources */,
 				2A0227282AAFAD9000DE2C3B /* PhotosCollectionViewController.swift in Sources */,
 				2A93EE6C2AA2930200243273 /* BaseViewProtocol.swift in Sources */,
+				2A2716E72ABC3BB300F221DB /* ApiError.swift in Sources */,
 				2A178EDA2AB9AB2D00CC4FEA /* OnlineIndicatorView.swift in Sources */,
 				2A178EE42AB9DAAF00CC4FEA /* ProfileNavButton.swift in Sources */,
 				2A93EE3C2AA2169500243273 /* AppDelegate.swift in Sources */,
@@ -518,7 +522,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -574,7 +578,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
