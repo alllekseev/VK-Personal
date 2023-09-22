@@ -11,34 +11,42 @@ final class FriendsTableViewController: UITableViewController {
 
     private let networkService = NetworkService()
 
+    private var friends = [Friend]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(
-            FriendsTableViewCell.self,
-            forCellReuseIdentifier: FriendsTableViewCell.reuseIdentifier)
-
         configureAppearance()
 
-//        networkService.fetchFriends(quantity: 5)
+        tableView.register(FriendsTableViewCell.self,
+                           forCellReuseIdentifier: FriendsTableViewCell.reuseIdentifier)
+
+        showIndicator()
+
+        networkService.getFriends { [weak self] friends in
+            self?.friends = friends
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+                self?.hideIndicator()
+            }
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        20
+        friends.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendsTableViewCell.reuseIdentifier) as? FriendsTableViewCell else { return UITableViewCell()
         }
 
-        cell.configureCell(name: "Dan")
+        cell.configureCell(friend: friends[indexPath.row])
         return cell
     }
 
 }
 
 private extension FriendsTableViewController {
-
     func configureAppearance() {
         title = Strings.TabBar.title(for: .friends)
         view.backgroundColor = Colors.background

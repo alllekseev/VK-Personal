@@ -21,6 +21,8 @@ final class FriendsTableViewCell: UITableViewCell {
         return label
     }()
 
+    private let onlineIndicatorView = OnlineIndicatorView()
+
     private let stackViewContainer: UIStackView = {
         let stackView = UIStackView()
         stackView.alignment = .center
@@ -42,10 +44,19 @@ final class FriendsTableViewCell: UITableViewCell {
         super.prepareForReuse()
         nameLabel.text = nil
         photoView.image = nil
+        onlineIndicatorView.backgroundColor = nil
     }
 
-    func configureCell(name: String) {
-        nameLabel.text = name
+    func configureCell(friend: Friend) {
+        nameLabel.text = "\(friend.name ?? "") \(friend.surname ?? "")"
+        switch friend.online {
+        case .offline:
+            onlineIndicatorView.backgroundColor = UIColor.lightGray
+        case .online:
+            onlineIndicatorView.backgroundColor = UIColor.systemGreen
+        }
+        guard let photoData = friend.photoData else { return }
+        photoView.image = UIImage(data: photoData)
     }
 }
 
@@ -57,10 +68,13 @@ extension FriendsTableViewCell: BaseViewProtocol {
     }
 
     func addSubviews() {
+
         stackViewContainer.addArrangedSubview(photoView)
         stackViewContainer.addArrangedSubview(nameLabel)
 
         setupView(stackViewContainer)
+
+        setupView(onlineIndicatorView)
     }
 
     func setupLayout() {
@@ -69,6 +83,9 @@ extension FriendsTableViewCell: BaseViewProtocol {
             stackViewContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             stackViewContainer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
             stackViewContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+
+            onlineIndicatorView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: .pi / 4 + 23),
+            onlineIndicatorView.trailingAnchor.constraint(equalTo: photoView.trailingAnchor),
         ])
     }
 

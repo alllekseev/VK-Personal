@@ -17,6 +17,9 @@
 		2A02272F2AB1E57D00DE2C3B /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A02272E2AB1E57D00DE2C3B /* GroupsTableViewCell.swift */; };
 		2A0227322AB1E67100DE2C3B /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0227312AB1E67100DE2C3B /* PhotoView.swift */; };
 		2A0227342AB1EC6800DE2C3B /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0227332AB1EC6800DE2C3B /* PhotosCollectionViewCell.swift */; };
+		2A178EDA2AB9AB2D00CC4FEA /* OnlineIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A178ED92AB9AB2D00CC4FEA /* OnlineIndicatorView.swift */; };
+		2A21483D2AB81F5600403A83 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A21483C2AB81F5600403A83 /* ImageDownloader.swift */; };
+		2A2148402AB8AB3C00403A83 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A21483F2AB8AB3C00403A83 /* NetworkService.swift */; };
 		2A2D9F742AA9DF8D002FBDC3 /* PasswordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D9F732AA9DF8D002FBDC3 /* PasswordButton.swift */; };
 		2A2D9F762AA9F1AE002FBDC3 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D9F752AA9F1AE002FBDC3 /* PasswordTextField.swift */; };
 		2A2D9F7B2AAA084F002FBDC3 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D9F7A2AAA084F002FBDC3 /* UIViewController+Extensions.swift */; };
@@ -24,7 +27,6 @@
 		2A6FFAE92AB34C5600D1738B /* ResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FFAE82AB34C5600D1738B /* ResponseWrapper.swift */; };
 		2A6FFAEB2AB34DD500D1738B /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FFAEA2AB34DD500D1738B /* Photo.swift */; };
 		2A6FFAED2AB34FB200D1738B /* ApiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FFAEC2AB34FB200D1738B /* ApiData.swift */; };
-		2A6FFAF02AB354EE00D1738B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FFAEF2AB354EE00D1738B /* NetworkService.swift */; };
 		2A93EE3C2AA2169500243273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93EE3B2AA2169500243273 /* AppDelegate.swift */; };
 		2A93EE3E2AA2169500243273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93EE3D2AA2169500243273 /* SceneDelegate.swift */; };
 		2A93EE402AA2169500243273 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93EE3F2AA2169500243273 /* AuthViewController.swift */; };
@@ -59,6 +61,9 @@
 		2A02272E2AB1E57D00DE2C3B /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		2A0227312AB1E67100DE2C3B /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		2A0227332AB1EC6800DE2C3B /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		2A178ED92AB9AB2D00CC4FEA /* OnlineIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineIndicatorView.swift; sourceTree = "<group>"; };
+		2A21483C2AB81F5600403A83 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		2A21483F2AB8AB3C00403A83 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		2A2D9F732AA9DF8D002FBDC3 /* PasswordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordButton.swift; sourceTree = "<group>"; };
 		2A2D9F752AA9F1AE002FBDC3 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		2A2D9F7A2AAA084F002FBDC3 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -66,7 +71,6 @@
 		2A6FFAE82AB34C5600D1738B /* ResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseWrapper.swift; sourceTree = "<group>"; };
 		2A6FFAEA2AB34DD500D1738B /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		2A6FFAEC2AB34FB200D1738B /* ApiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiData.swift; sourceTree = "<group>"; };
-		2A6FFAEF2AB354EE00D1738B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		2A93EE382AA2169500243273 /* VK Personal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK Personal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A93EE3B2AA2169500243273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A93EE3D2AA2169500243273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				2A0227312AB1E67100DE2C3B /* PhotoView.swift */,
+				2A178ED92AB9AB2D00CC4FEA /* OnlineIndicatorView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -164,7 +169,8 @@
 		2A6FFAEE2AB354DA00D1738B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				2A6FFAEF2AB354EE00D1738B /* NetworkService.swift */,
+				2A21483C2AB81F5600403A83 /* ImageDownloader.swift */,
+				2A21483F2AB8AB3C00403A83 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -386,19 +392,21 @@
 				2A93EE402AA2169500243273 /* AuthViewController.swift in Sources */,
 				2A0227322AB1E67100DE2C3B /* PhotoView.swift in Sources */,
 				2A0227202AAFAD4400DE2C3B /* FriendsTableViewController.swift in Sources */,
-				2A6FFAF02AB354EE00D1738B /* NetworkService.swift in Sources */,
 				2A93EE682AA2918C00243273 /* Icons.swift in Sources */,
 				2A0227252AAFAD7300DE2C3B /* GroupsTableViewController.swift in Sources */,
 				2A93EE5B2AA21AC800243273 /* AuthTextField.swift in Sources */,
 				2A02272F2AB1E57D00DE2C3B /* GroupsTableViewCell.swift in Sources */,
+				2A21483D2AB81F5600403A83 /* ImageDownloader.swift in Sources */,
 				2A2D9F7B2AAA084F002FBDC3 /* UIViewController+Extensions.swift in Sources */,
 				2A002D702AAF6832002DAF97 /* NavBarController.swift in Sources */,
+				2A2148402AB8AB3C00403A83 /* NetworkService.swift in Sources */,
 				2A6FFAE72AB34C2100D1738B /* Friend.swift in Sources */,
 				2A93EE702AA2A2F800243273 /* BigButton.swift in Sources */,
 				2A93EE662AA290AB00243273 /* Colors.swift in Sources */,
 				2A002D722AAF68BA002DAF97 /* TabBarController.swift in Sources */,
 				2A0227282AAFAD9000DE2C3B /* PhotosCollectionViewController.swift in Sources */,
 				2A93EE6C2AA2930200243273 /* BaseViewProtocol.swift in Sources */,
+				2A178EDA2AB9AB2D00CC4FEA /* OnlineIndicatorView.swift in Sources */,
 				2A93EE3C2AA2169500243273 /* AppDelegate.swift in Sources */,
 				2A93EE742AA2A90500243273 /* TitleLabel.swift in Sources */,
 				2A6FFAEB2AB34DD500D1738B /* Photo.swift in Sources */,

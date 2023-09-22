@@ -9,26 +9,33 @@ import UIKit
 
 final class PhotosCollectionViewController: UICollectionViewController {
 
+    private var photos = [Photo]()
+
     private let networkService = NetworkService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.collectionView.register(
-            PhotosCollectionViewCell.self,
-            forCellWithReuseIdentifier: PhotosCollectionViewCell.reuseIdentifier)
-
-        // ?what is it?
-        collectionView.delegate = self
-        collectionView.collectionViewLayout = createLayout()
-
         configureAppearance()
 
-//        networkService.fetchPhotos(quantity: 5)
+        showIndicator()
+
+        collectionView.delegate = self
+        collectionView.collectionViewLayout = createLayout()
+        collectionView.register(PhotosCollectionViewCell.self,
+                                forCellWithReuseIdentifier: PhotosCollectionViewCell.reuseIdentifier)
+
+        networkService.getPhotos(quantity: 10) { [weak self] photos in
+            self?.photos = photos
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+                self?.hideIndicator()
+            }
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        photos.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -38,24 +45,8 @@ final class PhotosCollectionViewController: UICollectionViewController {
             return UICollectionViewCell()
         }
 
-        cell.configureCell(photo: UIImage(systemName: "photo") ?? UIImage())
+        cell.configureCell(photo: photos[indexPath.row])
         return cell
-    }
-}
-
-extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        CGSize(width: (view.frame.size.width / 2) - 10,
-//               height: (view.frame.size.width / 2) - 10)
-//    }
-}
-
-private extension PhotosCollectionViewController {
-    func configureAppearance() {
-        title = Strings.TabBar.title(for: .photos)
-        collectionView.backgroundColor = Colors.background
-        // TODO: make insets in enum
-        collectionView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
     }
 }
 
@@ -88,19 +79,13 @@ extension PhotosCollectionViewController {
 
         return layout
     }
+}
 
-    // MARK: - Apply Snapshot
-    func applySnapshot() {
-//        let snapshot =
-    }
-
-    // MARK: - Configure DataSource
-    func configureDataSource()  {
-
-    }
-
-    // MARK: - Make Snapshot
-    func makeSnapshot() {
-
+private extension PhotosCollectionViewController {
+    func configureAppearance() {
+        title = Strings.TabBar.title(for: .photos)
+        collectionView.backgroundColor = Colors.background
+        // TODO: make insets in enum
+        collectionView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
     }
 }

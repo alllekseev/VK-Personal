@@ -9,11 +9,19 @@ import Foundation
 
 struct Photo: Decodable {
     let id: Int
-    let sizes: [PhotoSize]
+    var sizes: [PhotoSize]
 }
 
 struct PhotoSize: Decodable {
-    let url: String
+    let url: URL
     let height: Int
     let width: Int
+    var photoData: Data?
+    let type: String
+}
+
+enum PhotoType: String {
+    case s
+    case m
+    case x
 }

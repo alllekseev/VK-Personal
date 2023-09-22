@@ -60,11 +60,14 @@ final class GroupsTableViewCell: UITableViewCell {
         super.prepareForReuse()
         nameLabel.text = nil
         descriptionLabel.text = nil
+        photoView.image = nil
     }
 
-    func configureCell(name: String, description: String) {
-        nameLabel.text = name
-        descriptionLabel.text = description
+    func configureCell(group: Group) {
+        nameLabel.text = group.name
+        descriptionLabel.text = group.description ?? ""
+        guard let photoData = group.photoData else { return }
+        photoView.image = UIImage(data: photoData)
     }
 }
 

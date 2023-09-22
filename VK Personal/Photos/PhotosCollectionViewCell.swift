@@ -27,8 +27,13 @@ final class PhotosCollectionViewCell: UICollectionViewCell {
         photoView.image = nil
     }
 
-    func configureCell(photo: UIImage) {
-        photoView.image = photo
+    func configureCell(photo: Photo) {
+        photo.sizes.enumerated().forEach { (index, size) in
+            if size.type == PhotoType.m.rawValue,
+               let data = size.photoData {
+                photoView.image = UIImage(data: data)
+            }
+        }
     }
 }
 
@@ -45,16 +50,17 @@ extension PhotosCollectionViewCell: BaseViewProtocol {
 
     func setupLayout() {
         NSLayoutConstraint.activate([
-            photoView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            photoView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            photoView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            photoView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            photoView.topAnchor.constraint(equalTo: topAnchor),
+            photoView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            photoView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            photoView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
 
     func configureAppearance() {
         backgroundColor = Colors.white
         layer.cornerRadius = 20
+        layer.masksToBounds = true
     }
 
 
