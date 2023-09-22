@@ -45,24 +45,25 @@ struct Request<T: Decodable>: APIRequest {
 
         switch endpoint {
         case .friends:
-            urlComponents.queryItems?.append(URLQueryItem(name: "fields", value: "photo_50,online"))
+            urlComponents.queryItems?.append(URLQueryItem(name: "fields", value: "photo_100,online"))
         case .groups:
-            urlComponents.queryItems?.append(URLQueryItem(name: "fields", value: "photo_50"))
+            urlComponents.queryItems?.append(URLQueryItem(name: "fields", value: "description"))
             urlComponents.queryItems?.append(URLQueryItem(name: "extended", value: "1"))
         case .photos:
-            urlComponents.queryItems?.append(URLQueryItem(name: "fields", value: "photo_50"))
             urlComponents.queryItems?.append(URLQueryItem(name: "album_id", value: "wall"))
             urlComponents.queryItems?.append(URLQueryItem(name: "extended", value: "1"))
+        case .account:
+            urlComponents.queryItems?.remove(at: 1)
         }
 
         guard let url = urlComponents.url else { return nil }
         return URLRequest(url: url)
     }
 
-    func decodeResponse(data: Data) throws -> [T] {
+    func decodeResponse(data: Data) throws -> T {
         do {
             let request = try JSONDecoder().decode(ResponseWrapper<T>.self, from: data)
-            return request.response.items
+            return request.response
         } catch {
             throw APIRequestError.invalidData
         }
@@ -70,7 +71,6 @@ struct Request<T: Decodable>: APIRequest {
 }
 
 struct ImageAPIRequest: APIRequest {
-
     enum ResponseError: Error {
         case invalidImageData
     }
@@ -87,7 +87,7 @@ struct ImageAPIRequest: APIRequest {
 }
 
 final class NetworkService {
-    func sendRequest<Request: APIRequest>(_ request: Request) async throws -> Request.Response {
+    func sendRequest<Request: APIRequest>(_ request: Request, isArray: Bool = true) async throws -> Request.Response {
         guard let urlRequest = request.urlRequest else {
             throw APIRequestError.invalidURLRequest
         }
@@ -105,10 +105,13 @@ final class NetworkService {
     func getFriends(quantity: Int? = nil, _ completion: @escaping ([Friend]) -> Void) {
         Task {
             do {
-                let request = Request<Friend>(endpoint: .friends, methodType: .get, quantity: quantity)
-                var fetchedData = try await sendRequest(request)
+                let request = Request<Response<Friend>>(endpoint: .friends, methodType: .get, quantity: quantity)
+                var fetchedData = try await sendRequest(request).items
                 for (index, data) in fetchedData.enumerated() {
-                    guard let url = data.photoUrl else { return }
+                    guard let url = data.photoUrl else {
+                        completion(fetchedData)
+                        return
+                    }
                     let imageRequest = ImageAPIRequest(url: url)
                     let image = try await sendRequest(imageRequest)
                     fetchedData[index].photoData = image
@@ -123,8 +126,8 @@ final class NetworkService {
     func getGroups(quantity: Int? = nil, _ completion: @escaping ([Group]) -> Void) {
         Task {
             do {
-                let request = Request<Group>(endpoint: .groups, methodType: .get, quantity: quantity)
-                var fetchedData = try await sendRequest(request)
+                let request = Request<Response<Group>>(endpoint: .groups, methodType: .get, quantity: quantity)
+                var fetchedData = try await sendRequest(request).items
                 for (index, data) in fetchedData.enumerated() {
                     let imageRequest = ImageAPIRequest(url: data.photoUrl)
                     let image = try await sendRequest(imageRequest)
@@ -140,8 +143,8 @@ final class NetworkService {
     func getPhotos(quantity: Int? = nil, _ completion: @escaping ([Photo]) -> Void) {
         Task {
             do {
-                let request = Request<Photo>(endpoint: .photos, methodType: .get, quantity: quantity)
-                var fetchedData = try await sendRequest(request)
+                let request = Request<Response<Photo>>(endpoint: .photos, methodType: .get, quantity: quantity)
+                var fetchedData = try await sendRequest(request).items
                 for (index, data) in fetchedData.enumerated() {
                     for (sizeIndex, sizeData) in data.sizes.enumerated() {
                         let imageRequest = ImageAPIRequest(url: sizeData.url)
@@ -151,7 +154,26 @@ final class NetworkService {
                 }
                 completion(fetchedData)
             } catch {
-                print(error)
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func getAccount(_ completion: @escaping (Account) -> Void) {
+        Task {
+            do {
+                let request = Request<Account>(endpoint: .account, methodType: .getProfileInfo)
+                var fetchedData = try await sendRequest(request)
+                guard let url = fetchedData.photoUrl else {
+                    completion(fetchedData)
+                    return
+                }
+                let imageRequest = ImageAPIRequest(url: url)
+                let image = try await sendRequest(imageRequest)
+                fetchedData.photoData = image
+                completion(fetchedData)
+            } catch {
+                print(error.localizedDescription)
             }
         }
     }

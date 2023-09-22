@@ -17,10 +17,7 @@ final class NavBarController: UINavigationController {
 
     private func configure() {
         view.backgroundColor = Colors.background
-        navigationBar.isTranslucent = false
+        navigationBar.isTranslucent = true
         navigationBar.prefersLargeTitles = true
-        navigationBar.shadowImage = UIImage(named: "Banner")
-
-//        navigationBar.addBottomBorder(with: Colors.separator, height: 1)
     }
 }

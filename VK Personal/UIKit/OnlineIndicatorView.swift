@@ -27,7 +27,7 @@ final class OnlineIndicatorView: UIView {
     private func configureView() {
         layer.cornerRadius = 8
         layer.borderWidth = 2
-        layer.borderColor = Colors.white.cgColor
+        layer.borderColor = Colors.clearWhite.cgColor
 
         
         NSLayoutConstraint.activate([

@@ -16,7 +16,7 @@ struct Group: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case address = "screen_name"
-        case photoUrl = "photo_50"
+        case photoUrl = "photo_100"
         case photoData
         case name
         case description
