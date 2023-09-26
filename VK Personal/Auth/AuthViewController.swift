@@ -20,11 +20,11 @@ final class AuthViewController: VKBaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard ApiData.token == nil,
-              ApiData.userID == nil else {
-            navigateToApp()
-            return
-        }
+//        guard ApiData.token == nil,
+//              ApiData.userID == nil else {
+//            navigateToApp()
+//            return
+//        }
 
         auth()
     }

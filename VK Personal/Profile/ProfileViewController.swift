@@ -11,6 +11,8 @@ final class ProfileViewController: VKBaseController {
 
     private lazy var profileView = ProfileView(frame: view.bounds)
 
+    private let themeButton = MenuButton()
+
     private let networkService = NetworkService()
 
     private var account: Account!
@@ -20,9 +22,13 @@ final class ProfileViewController: VKBaseController {
 
         showIndicator()
 
-        networkService.getAccount { [weak self] account in
+        networkService.getAccount { [weak self] (account, error) in
             self?.account = account
             DispatchQueue.main.async {
+                guard let account else {
+                    self?.hideIndicator()
+                    return
+                }
                 self?.profileView.configure(account: account)
                 self?.hideIndicator()
             }
@@ -49,5 +55,12 @@ extension ProfileViewController {
     override func configureAppearance() {
         super.configureAppearance()
         title = "Профиль"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: themeButton)
     }
+}
+
+#Preview {
+    let vc = ProfileViewController()
+
+    return vc
 }

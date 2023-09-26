@@ -13,8 +13,8 @@ enum ApiData {
     static let blankUrlString = "https://oauth.vk.com/blank.html"
     static let blankHtml = "/blank.html"
 
-    static var token: String?
-    static var userID: String?
+    static var token: String? = ""
+    static var userID: String? = ""
 
     static let baseUrlString = "https://api.vk.com/method"
 

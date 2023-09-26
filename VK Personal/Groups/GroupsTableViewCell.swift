@@ -15,7 +15,7 @@ final class GroupsTableViewCell: UITableViewCell {
 
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Colors.text
+        label.textColor = .text
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.textAlignment = .left
         return label
@@ -23,7 +23,7 @@ final class GroupsTableViewCell: UITableViewCell {
 
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Colors.textPlaceholder
+        label.textColor = .textSecondary
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.textAlignment = .left
         return label
@@ -98,6 +98,6 @@ extension GroupsTableViewCell: BaseViewProtocol {
     }
 
     func configureAppearance() {
-        backgroundColor = Colors.clearWhite
+        backgroundColor = .element
     }
 }

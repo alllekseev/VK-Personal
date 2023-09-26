@@ -9,11 +9,13 @@ import UIKit
 
 struct Friend: Decodable {
     let id: Int
+    let online: OnlineStatus
     let photoUrl: URL?
     var photoData: Data?
     var name: String?
     var surname: String?
-    let online: OnlineStatus
+
+
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -23,4 +25,8 @@ struct Friend: Decodable {
         case surname = "last_name"
         case online
     }
+
+    static let friends: [Friend] = [
+        .init(id: 1, online: .online, photoUrl: nil, name: "Test", surname: "User")
+    ]
 }

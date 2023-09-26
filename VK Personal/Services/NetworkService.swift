@@ -159,20 +159,21 @@ final class NetworkService {
         }
     }
 
-    func getAccount(_ completion: @escaping (Account) -> Void) {
+    func getAccount(_ completion: @escaping (Account?, Error?) -> Void) {
         Task {
             do {
                 let request = Request<Account>(endpoint: .account, methodType: .getProfileInfo)
                 var fetchedData = try await sendRequest(request)
                 guard let url = fetchedData.photoUrl else {
-                    completion(fetchedData)
+                    completion(fetchedData, nil)
                     return
                 }
                 let imageRequest = ImageAPIRequest(url: url)
                 let image = try await sendRequest(imageRequest)
                 fetchedData.photoData = image
-                completion(fetchedData)
+                completion(fetchedData, nil)
             } catch {
+                completion(nil, error)
                 print(error.localizedDescription)
             }
         }

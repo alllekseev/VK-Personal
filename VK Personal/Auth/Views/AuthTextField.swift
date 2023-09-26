@@ -43,7 +43,7 @@ class AuthTextField: UITextField {
     func setupTextField(placeholder: String) {
         textColor = .black
         layer.cornerRadius = 16
-        backgroundColor = Colors.clearWhite
+        backgroundColor = .element
 
         // FIXME: - fix shadow
         layer.shadowPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: bounds.width, height: 54), cornerRadius: 0).cgPath
@@ -55,7 +55,7 @@ class AuthTextField: UITextField {
         attributedPlaceholder = NSAttributedString(
             string: placeholder,
             attributes: [
-                NSAttributedString.Key.foregroundColor : Colors.textPlaceholder
+                NSAttributedString.Key.foregroundColor : UIColor.textSecondary
             ]
         )
         font = .systemFont(ofSize: 16)

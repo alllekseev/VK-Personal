@@ -48,7 +48,7 @@ final class GroupsTableViewController: UITableViewController {
 private extension GroupsTableViewController {
     func configureAppearance() {
         title = Strings.TabBar.title(for: .groups)
-        tableView.backgroundColor = Colors.background
+        tableView.backgroundColor = .mainBackground
         tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
     }
 }

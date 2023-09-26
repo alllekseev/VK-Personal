@@ -51,7 +51,7 @@ final class FriendsTableViewController: UITableViewController {
 private extension FriendsTableViewController {
     func configureAppearance() {
         title = Strings.TabBar.title(for: .friends)
-        view.backgroundColor = Colors.background
+        view.backgroundColor = .mainBackground
         tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
         profileNavButton.addTarget(self, action: #selector(tappedNavigateToProfile), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileNavButton)
@@ -60,11 +60,11 @@ private extension FriendsTableViewController {
 
 @objc private extension FriendsTableViewController {
     func tappedNavigateToProfile() {
-        let animation = CATransition()
-        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
-        animation.type = .fade
-        animation.duration = 1.5
-        navigationController?.view.layer.add(animation, forKey: nil)
-        navigationController?.pushViewController(ProfileViewController(), animated: false)
+//        let animation = CATransition()
+//        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+//        animation.type = .fade
+//        animation.duration = 1.5
+//        navigationController?.view.layer.add(animation, forKey: nil)
+        navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
 }

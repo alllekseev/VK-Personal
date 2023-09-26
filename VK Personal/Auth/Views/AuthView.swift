@@ -101,7 +101,7 @@ extension AuthView {
     override func configureAppearance() {
         super.configureAppearance()
 
-        backgroundColor = Colors.mainBackground
+        backgroundColor = .mainBackground
     }
 
     func addActions() {
@@ -123,4 +123,12 @@ extension AuthView: UITextFieldDelegate {
     func tappedLogin() {
         self.delegate?.tappedLogin(TabBarController())
     }
+}
+
+#Preview {
+    let authView = AuthView(frame: .zero)
+//    NSLayoutConstraint.activate([
+//        authView.leadingAnchor.constraint(equalTo: leadingAnchor)
+//    ])
+    return authView
 }

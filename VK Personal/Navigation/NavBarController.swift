@@ -16,7 +16,7 @@ final class NavBarController: UINavigationController {
     }
 
     private func configure() {
-        view.backgroundColor = Colors.background
+        view.backgroundColor = .mainBackground
         navigationBar.isTranslucent = true
         navigationBar.prefersLargeTitles = true
     }

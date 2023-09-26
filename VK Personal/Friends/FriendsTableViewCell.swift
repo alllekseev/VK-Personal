@@ -15,7 +15,7 @@ final class FriendsTableViewCell: UITableViewCell {
 
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Colors.text
+        label.textColor = .text
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.textAlignment = .left
         return label
@@ -91,7 +91,7 @@ extension FriendsTableViewCell: BaseViewProtocol {
 
     func configureAppearance() {
 
-        backgroundColor = Colors.clearWhite
+        backgroundColor = .element
     }
 
 

@@ -20,7 +20,7 @@ final class PhotoView: UIImageView {
     }
     
     private func configureView() {
-        backgroundColor = Colors.textPlaceholder
+        backgroundColor = .textSecondary
         layer.cornerRadius = 30
         layer.masksToBounds = true
 

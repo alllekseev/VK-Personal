@@ -15,7 +15,7 @@ final class ProfileView: VKBaseView {
     private let photoView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 100
-        imageView.backgroundColor = Colors.separator
+        imageView.backgroundColor = .separatorVK
         imageView.layer.masksToBounds = true
         return imageView
     }()
@@ -23,7 +23,7 @@ final class ProfileView: VKBaseView {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        label.textColor = Colors.text
+        label.textColor = .text
         label.textAlignment = .center
         return label
     }()
@@ -76,6 +76,6 @@ extension ProfileView {
 
     override func configureAppearance() {
         super.configureAppearance()
-        backgroundColor = Colors.background
+        backgroundColor = .mainBackground
     }
 }

@@ -22,7 +22,7 @@ final class TitleLabel: UILabel {
         self.text = text
 
         font = .systemFont(ofSize: 22, weight: .bold)
-        textColor = Colors.main
+        textColor = .main
         textAlignment = .center
     }
 }
