@@ -68,10 +68,14 @@ extension AuthViewController {
         super.setupLayout()
 
         NSLayoutConstraint.activate([
-            webView.topAnchor.constraint(equalTo: view.topAnchor),
-            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            webView.topAnchor.constraint(equalTo: view./*topAnchor*/),
+//            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            webView.heightAnchor.constraint(equalToConstant: view.frame.size.height),
+            webView.widthAnchor.constraint(equalToConstant: view.frame.size.width),
+            webView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            webView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
     }
 }

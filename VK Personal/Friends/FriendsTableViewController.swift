@@ -10,6 +10,7 @@ import UIKit
 final class FriendsTableViewController: UITableViewController {
 
     private let networkService = NetworkService()
+    private let dataManager = DataManager()
 
     private var friends = [Friend]()
 
@@ -23,15 +24,11 @@ final class FriendsTableViewController: UITableViewController {
         tableView.register(FriendsTableViewCell.self,
                            forCellReuseIdentifier: FriendsTableViewCell.reuseIdentifier)
 
-        showIndicator()
-
-        networkService.getFriends { [weak self] friends in
-            self?.friends = friends
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-                self?.hideIndicator()
-            }
-        }
+        friends = dataManager.fetchFriends()
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(getFriends), for: .valueChanged)
+        tableView.reloadData()
+        getFriends()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,11 +36,53 @@ final class FriendsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendsTableViewCell.reuseIdentifier) as? FriendsTableViewCell else { return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: FriendsTableViewCell.reuseIdentifier
+        ) as? FriendsTableViewCell else { return UITableViewCell()
         }
 
         cell.configureCell(friend: friends[indexPath.row])
         return cell
+    }
+
+    @objc func getFriends() {
+        showIndicator()
+        networkService.getFriends { [weak self] result in
+            switch result {
+            case .success(let friends):
+                self?.friends = friends
+                self?.dataManager.addFriends(friends: friends)
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    self?.hideIndicator()
+                }
+            case .failure(_):
+                self?.friends = self?.dataManager.fetchFriends() ?? []
+                DispatchQueue.main.async {
+                    self?.hideIndicator()
+                    self?.showAlert()
+                }
+            }
+            DispatchQueue.main.async {
+                self?.refreshControl?.endRefreshing()
+            }
+        }
+    }
+
+    func showAlert() {
+        var message: String?
+        if let formattedDate = dataManager.fetchFriendDate()?.getDateString(with: .ru) {
+            message = "last updated was \(String(describing: formattedDate))"
+        } else {
+            message = nil
+        }
+        let alert = UIAlertController(
+            title: "Data received data",
+            message: message,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(alert, animated: true)
     }
 
 }

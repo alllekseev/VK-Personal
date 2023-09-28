@@ -9,7 +9,7 @@ import UIKit
 
 struct Friend: Decodable {
     let id: Int
-    let online: OnlineStatus
+    let onlineStatus: OnlineStatus
     let photoUrl: URL?
     var photoData: Data?
     var name: String?
@@ -23,10 +23,10 @@ struct Friend: Decodable {
         case photoData
         case name = "first_name"
         case surname = "last_name"
-        case online
+        case onlineStatus = "online"
     }
 
     static let friends: [Friend] = [
-        .init(id: 1, online: .online, photoUrl: nil, name: "Test", surname: "User")
+        .init(id: 1, onlineStatus: .online, photoUrl: nil, name: "Test", surname: "User")
     ]
 }

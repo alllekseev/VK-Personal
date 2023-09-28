@@ -20,19 +20,32 @@ final class ProfileViewController: VKBaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        getAccount()
+    }
+
+    func getAccount() {
         showIndicator()
 
-        networkService.getAccount { [weak self] (account, error) in
-            self?.account = account
-            DispatchQueue.main.async {
-                guard let account else {
-                    self?.hideIndicator()
-                    return
+        networkService.getAccount { [weak self] result in
+            switch result {
+            case .success(let account):
+                self?.account = account
+                DispatchQueue.main.async {
+                    self?.profileView.configure(account: account)
                 }
-                self?.profileView.configure(account: account)
-                self?.hideIndicator()
+            case .failure(_):
+                self?.showAlert()
             }
+            self?.hideIndicator()
         }
+    }
+
+    func showAlert() {
+        let alert = UIAlertController(title: "Network connection failure", message: "Return to the previous page?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
+            self.navigationController?.popToRootViewController(animated: true)
+        })
+        present(alert, animated: true)
     }
 }
 
@@ -54,13 +67,7 @@ extension ProfileViewController {
 
     override func configureAppearance() {
         super.configureAppearance()
-        title = "Профиль"
+        title = "Profile"
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: themeButton)
     }
-}
-
-#Preview {
-    let vc = ProfileViewController()
-
-    return vc
 }

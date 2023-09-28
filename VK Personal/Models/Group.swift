@@ -8,14 +8,14 @@
 import Foundation
 
 struct Group: Decodable {
-    let address: String
-    let photoUrl: URL
+    let id: Int
+    let photoUrl: URL?
     var photoData: Data?
     let name: String?
     let description: String?
 
     enum CodingKeys: String, CodingKey {
-        case address = "screen_name"
+        case id
         case photoUrl = "photo_100"
         case photoData
         case name

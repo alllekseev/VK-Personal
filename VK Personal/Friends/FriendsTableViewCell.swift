@@ -49,11 +49,13 @@ final class FriendsTableViewCell: UITableViewCell {
 
     func configureCell(friend: Friend) {
         nameLabel.text = "\(friend.name ?? "") \(friend.surname ?? "")"
-        switch friend.online {
+        switch friend.onlineStatus {
         case .offline:
-            onlineIndicatorView.backgroundColor = UIColor.lightGray
+            onlineIndicatorView.backgroundColor = .lightGray
         case .online:
-            onlineIndicatorView.backgroundColor = UIColor.systemGreen
+            onlineIndicatorView.backgroundColor = .systemGreen
+        case .error:
+            onlineIndicatorView.backgroundColor = .systemRed
         }
         guard let photoData = friend.photoData else { return }
         photoView.image = UIImage(data: photoData)

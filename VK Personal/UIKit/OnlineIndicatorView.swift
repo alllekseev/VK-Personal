@@ -10,6 +10,7 @@ import UIKit
 enum OnlineStatus: Int, Decodable {
     case offline = 0
     case online = 1
+    case error = -1
 }
 
 final class OnlineIndicatorView: UIView {
