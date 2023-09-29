@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// TODO: make init?
 final class ProfileViewController: VKBaseController {
 
     private lazy var profileView = ProfileView(frame: view.bounds)
@@ -19,25 +19,38 @@ final class ProfileViewController: VKBaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        getAccount()
     }
 
-    func getAccount() {
+    func getAccount(isUserProfile: Bool = true, account: Account? = nil) {
         showIndicator()
 
-        networkService.getAccount { [weak self] result in
-            switch result {
-            case .success(let account):
-                self?.account = account
-                DispatchQueue.main.async {
-                    self?.profileView.configure(account: account)
+        if isUserProfile {
+            networkService.getAccount { [weak self] result in
+                switch result {
+                case .success(let account):
+                    self?.account = account
+                    DispatchQueue.main.async {
+                        self?.profileView.configure(account: account)
+                    }
+                case .failure(_):
+                    DispatchQueue.main.async {
+                        self?.showAlert()
+                    }
                 }
-            case .failure(_):
-                self?.showAlert()
             }
-            self?.hideIndicator()
+        } else {
+            guard let account = account else {
+                return
+            }
+            profileView.configure(account: account)
         }
+        DispatchQueue.main.async {
+            self.hideIndicator()
+        }
+    }
+
+    func getFriendProfile(account: Account) {
+
     }
 
     func showAlert() {

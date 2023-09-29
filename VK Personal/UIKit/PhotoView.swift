@@ -23,6 +23,7 @@ final class PhotoView: UIImageView {
         backgroundColor = .textSecondary
         layer.cornerRadius = 30
         layer.masksToBounds = true
+        contentMode = .scaleAspectFill
 
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 60),

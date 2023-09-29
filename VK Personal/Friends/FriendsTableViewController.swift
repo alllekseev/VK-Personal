@@ -40,9 +40,22 @@ final class FriendsTableViewController: UITableViewController {
             withIdentifier: FriendsTableViewCell.reuseIdentifier
         ) as? FriendsTableViewCell else { return UITableViewCell()
         }
-
+        cell.selectionStyle = .none
         cell.configureCell(friend: friends[indexPath.row])
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let friend = friends[indexPath.row]
+        let account = Account(name: friend.name,
+                              surname: friend.surname,
+                              photoUrl: friend.photoUrl,
+                              photoData: friend.photoData)
+
+        let profileViewController = ProfileViewController()
+        profileViewController.getAccount(isUserProfile: false, account: account)
+
+        navigationController?.pushViewController(profileViewController, animated: true)
     }
 
     @objc func getFriends() {
@@ -104,6 +117,8 @@ private extension FriendsTableViewController {
 //        animation.type = .fade
 //        animation.duration = 1.5
 //        navigationController?.view.layer.add(animation, forKey: nil)
-        navigationController?.pushViewController(ProfileViewController(), animated: true)
+        let profileViewController = ProfileViewController()
+        profileViewController.getAccount(isUserProfile: true)
+        navigationController?.pushViewController(profileViewController, animated: true)
     }
 }

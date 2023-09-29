@@ -19,7 +19,7 @@ struct Friend: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case id
-        case photoUrl = "photo_100"
+        case photoUrl = "photo_200_orig"
         case photoData
         case name = "first_name"
         case surname = "last_name"

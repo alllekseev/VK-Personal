@@ -17,6 +17,7 @@ final class ProfileView: VKBaseView {
         imageView.layer.cornerRadius = 100
         imageView.backgroundColor = .separatorVK
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
@@ -41,8 +42,6 @@ final class ProfileView: VKBaseView {
         nameLabel.text = account.fullName
         guard let photoData = account.photoData else { return }
         photoView.image = UIImage(data: photoData)
-
-        logger.notice("Name Label Text is '\(account.fullName)'.")
     }
 }
 

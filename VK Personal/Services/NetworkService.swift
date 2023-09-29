@@ -40,7 +40,7 @@ struct Request<T: Decodable>: APIRequest {
         urlComponents.queryItems = [
             URLQueryItem(name: "access_token", value: ApiData.token),
             URLQueryItem(name: "user_id", value: ApiData.userID),
-            URLQueryItem(name: "v", value: "5.131"),
+            URLQueryItem(name: "v", value: "5.150"),
         ]
 
         if let quantity {
@@ -49,12 +49,12 @@ struct Request<T: Decodable>: APIRequest {
 
         switch endpoint {
         case .friends:
-            urlComponents.queryItems?.append(URLQueryItem(name: "fields", value: "photo_100,online"))
+            urlComponents.queryItems?.append(URLQueryItem(name: "fields", value: "photo_200_orig,online"))
         case .groups:
             urlComponents.queryItems?.append(URLQueryItem(name: "fields", value: "description"))
             urlComponents.queryItems?.append(URLQueryItem(name: "extended", value: "1"))
         case .photos:
-            urlComponents.queryItems?.append(URLQueryItem(name: "album_id", value: "wall"))
+            urlComponents.queryItems?.append(URLQueryItem(name: "album_id", value: "profile"))
             urlComponents.queryItems?.append(URLQueryItem(name: "extended", value: "1"))
         case .account:
             urlComponents.queryItems?.remove(at: 1)

@@ -40,7 +40,7 @@ final class GroupsTableViewController: UITableViewController {
         ) as? GroupsTableViewCell else {
             return UITableViewCell()
         }
-        
+        cell.selectionStyle = .none
         cell.configureCell(group: groups[indexPath.row])
         return cell
     }

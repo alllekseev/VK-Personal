@@ -57,9 +57,10 @@
 		2A93EE762AA2AAAF00243273 /* LogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93EE752AA2AAAF00243273 /* LogoImageView.swift */; };
 		2A93EE782AA3219E00243273 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93EE772AA3219E00243273 /* AuthView.swift */; };
 		2A93EEAE2AA91E2100243273 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2A93EEAD2AA91E2100243273 /* .gitignore */; };
-		2A961CDF2ABF9ECB0047A732 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A961CDE2ABF9ECB0047A732 /* Theme.swift */; };
+		2A961CDF2ABF9ECB0047A732 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A961CDE2ABF9ECB0047A732 /* Style.swift */; };
 		2AB28FCF2AC57F22006DEA91 /* GroupModelCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB28FCD2AC57F22006DEA91 /* GroupModelCD+CoreDataClass.swift */; };
 		2AB28FD02AC57F22006DEA91 /* GroupModelCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB28FCE2AC57F22006DEA91 /* GroupModelCD+CoreDataProperties.swift */; };
+		2AB28FEF2AC5F612006DEA91 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB28FEE2AC5F612006DEA91 /* ThemeProtocol.swift */; };
 		2ACEB6E42ABECAEB00CF1A69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ACEB6E32ABECAEB00CF1A69 /* Assets.xcassets */; };
 		2AEF1C1F2AB47F7500E042DD /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF1C1E2AB47F7500E042DD /* Data+Extensions.swift */; };
 		2AEF1C212AB4A55500E042DD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEF1C202AB4A55500E042DD /* Group.swift */; };
@@ -118,9 +119,10 @@
 		2A93EE752AA2AAAF00243273 /* LogoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImageView.swift; sourceTree = "<group>"; };
 		2A93EE772AA3219E00243273 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		2A93EEAD2AA91E2100243273 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		2A961CDE2ABF9ECB0047A732 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2A961CDE2ABF9ECB0047A732 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		2AB28FCD2AC57F22006DEA91 /* GroupModelCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupModelCD+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		2AB28FCE2AC57F22006DEA91 /* GroupModelCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupModelCD+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		2AB28FEE2AC5F612006DEA91 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		2ACEB6E32ABECAEB00CF1A69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AEF1C1E2AB47F7500E042DD /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 		2AEF1C202AB4A55500E042DD /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				2A93EE6B2AA2930200243273 /* BaseViewProtocol.swift */,
+				2AB28FEE2AC5F612006DEA91 /* ThemeProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -372,7 +375,7 @@
 			children = (
 				2A93EE672AA2918C00243273 /* Icons.swift */,
 				2A002D732AAF6A82002DAF97 /* Strings.swift */,
-				2A961CDE2ABF9ECB0047A732 /* Theme.swift */,
+				2A961CDE2ABF9ECB0047A732 /* Style.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -493,12 +496,13 @@
 				2A7415B02AC480BB00712FE8 /* FriendDate+CoreDataProperties.swift in Sources */,
 				2A2D9F742AA9DF8D002FBDC3 /* PasswordButton.swift in Sources */,
 				2A2D9F762AA9F1AE002FBDC3 /* PasswordTextField.swift in Sources */,
-				2A961CDF2ABF9ECB0047A732 /* Theme.swift in Sources */,
+				2A961CDF2ABF9ECB0047A732 /* Style.swift in Sources */,
 				2A7415B42AC4A10B00712FE8 /* GroupDate+CoreDataProperties.swift in Sources */,
 				2AEF1C1F2AB47F7500E042DD /* Data+Extensions.swift in Sources */,
 				2A178EDD2AB9D18D00CC4FEA /* ProfileViewController.swift in Sources */,
 				2A7415B32AC4A10B00712FE8 /* GroupDate+CoreDataClass.swift in Sources */,
 				2A6CB8012AC4361500807BC4 /* DataManager.swift in Sources */,
+				2AB28FEF2AC5F612006DEA91 /* ThemeProtocol.swift in Sources */,
 				2A6FFAED2AB34FB200D1738B /* ApiData.swift in Sources */,
 				2A93EE5E2AA21BB100243273 /* VKBaseController.swift in Sources */,
 			);
