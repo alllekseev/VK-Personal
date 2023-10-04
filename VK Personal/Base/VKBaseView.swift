@@ -31,5 +31,5 @@ class VKBaseView: UIView {
 
     func setupLayout() { }
 
-    func configureAppearance() {}
+    func configureAppearance() { }
 }

@@ -21,12 +21,11 @@ final class BigButton: UIButton {
 
     private func setupButton(title: String, height: CGFloat) {
 
-//        backgroundColor = Colors.main
-        layer.backgroundColor = Colors.main.cgColor
+        layer.backgroundColor = UIColor.main.cgColor
         layer.cornerRadius = 24
 
         setTitle(title, for: .normal)
-        titleLabel?.textColor = Colors.clearWhite
+        titleLabel?.textColor = .element
         titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
         heightAnchor.constraint(equalToConstant: height).isActive = true
     }

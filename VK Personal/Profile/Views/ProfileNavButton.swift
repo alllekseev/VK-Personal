@@ -22,7 +22,7 @@ final class ProfileNavButton: UIButton {
         let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 140, weight: .medium, scale: .medium)
         let image = UIImage(systemName: "person.crop.circle", withConfiguration: symbolConfiguration)
         setImage(image, for: .normal)
-        tintColor = Colors.main
+        tintColor = .main
         backgroundColor = .clear
         layer.cornerRadius = 16
 

@@ -6,24 +6,26 @@
 //
 
 import UIKit
+import OSLog
 
 final class ProfileView: VKBaseView {
+
+    let logger = Logger(subsystem: "VKPersonal", category: "ProfileView")
 
     private let photoView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 100
-        imageView.backgroundColor = Colors.separator
+        imageView.backgroundColor = .separatorVK
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        label.textColor = Colors.text
+        label.textColor = .text
         label.textAlignment = .center
-
-        label.text = "Алексеев Олег"
         return label
     }()
 
@@ -37,7 +39,7 @@ final class ProfileView: VKBaseView {
     }()
 
     func configure(account: Account) {
-        nameLabel.text = "\(account.name) \(account.surname)"
+        nameLabel.text = account.fullName
         guard let photoData = account.photoData else { return }
         photoView.image = UIImage(data: photoData)
     }
@@ -73,6 +75,6 @@ extension ProfileView {
 
     override func configureAppearance() {
         super.configureAppearance()
-        backgroundColor = Colors.background
+        backgroundColor = .mainBackground
     }
 }

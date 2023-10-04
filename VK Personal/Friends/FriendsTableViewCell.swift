@@ -15,7 +15,7 @@ final class FriendsTableViewCell: UITableViewCell {
 
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Colors.text
+        label.textColor = .text
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.textAlignment = .left
         return label
@@ -49,11 +49,13 @@ final class FriendsTableViewCell: UITableViewCell {
 
     func configureCell(friend: Friend) {
         nameLabel.text = "\(friend.name ?? "") \(friend.surname ?? "")"
-        switch friend.online {
+        switch friend.onlineStatus {
         case .offline:
-            onlineIndicatorView.backgroundColor = UIColor.lightGray
+            onlineIndicatorView.backgroundColor = .lightGray
         case .online:
-            onlineIndicatorView.backgroundColor = UIColor.systemGreen
+            onlineIndicatorView.backgroundColor = .systemGreen
+        case .error:
+            onlineIndicatorView.backgroundColor = .systemRed
         }
         guard let photoData = friend.photoData else { return }
         photoView.image = UIImage(data: photoData)
@@ -91,7 +93,7 @@ extension FriendsTableViewCell: BaseViewProtocol {
 
     func configureAppearance() {
 
-        backgroundColor = Colors.clearWhite
+        backgroundColor = .element
     }
 
 

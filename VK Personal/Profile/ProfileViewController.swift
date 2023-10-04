@@ -6,10 +6,12 @@
 //
 
 import UIKit
-
+// TODO: make init?
 final class ProfileViewController: VKBaseController {
 
     private lazy var profileView = ProfileView(frame: view.bounds)
+
+    private let themeButton = MenuButton()
 
     private let networkService = NetworkService()
 
@@ -17,16 +19,46 @@ final class ProfileViewController: VKBaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
+    func getAccount(isUserProfile: Bool = true, account: Account? = nil) {
         showIndicator()
 
-        networkService.getAccount { [weak self] account in
-            self?.account = account
-            DispatchQueue.main.async {
-                self?.profileView.configure(account: account)
-                self?.hideIndicator()
+        if isUserProfile {
+            networkService.getAccount { [weak self] result in
+                switch result {
+                case .success(let account):
+                    self?.account = account
+                    DispatchQueue.main.async {
+                        self?.profileView.configure(account: account)
+                    }
+                case .failure(_):
+                    DispatchQueue.main.async {
+                        self?.showAlert()
+                    }
+                }
             }
+        } else {
+            guard let account = account else {
+                return
+            }
+            profileView.configure(account: account)
         }
+        DispatchQueue.main.async {
+            self.hideIndicator()
+        }
+    }
+
+    func getFriendProfile(account: Account) {
+
+    }
+
+    func showAlert() {
+        let alert = UIAlertController(title: "Network connection failure", message: "Return to the previous page?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
+            self.navigationController?.popToRootViewController(animated: true)
+        })
+        present(alert, animated: true)
     }
 }
 
@@ -48,6 +80,7 @@ extension ProfileViewController {
 
     override func configureAppearance() {
         super.configureAppearance()
-        title = "Профиль"
+        title = "Profile"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: themeButton)
     }
 }

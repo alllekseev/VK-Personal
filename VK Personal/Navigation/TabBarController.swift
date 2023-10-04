@@ -22,9 +22,9 @@ final class TabBarController: UITabBarController {
     }
 
     private func configureAppearance() {
-        tabBar.tintColor = Colors.main
-        tabBar.backgroundColor = .white
-        tabBar.isTranslucent = true
+        tabBar.unselectedItemTintColor = .textSecondary
+        tabBar.tintColor = .main
+        tabBar.backgroundColor = .element
 
 
         let controllers: [NavBarController] = Tabs.allCases.map { tab in

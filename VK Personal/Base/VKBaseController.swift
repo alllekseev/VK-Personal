@@ -24,6 +24,6 @@ class VKBaseController: UIViewController {
     func addSubviews() { }
     func setupLayout() { }
     func configureAppearance() {
-        view.backgroundColor = Colors.background
+        view.backgroundColor = .mainBackground
     }
 }

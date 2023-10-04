@@ -84,7 +84,7 @@ extension PhotosCollectionViewController {
 private extension PhotosCollectionViewController {
     func configureAppearance() {
         title = Strings.TabBar.title(for: .photos)
-        collectionView.backgroundColor = Colors.background
+        collectionView.backgroundColor = .mainBackground
         // TODO: make insets in enum
         collectionView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
     }
